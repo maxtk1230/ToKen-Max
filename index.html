@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>加密货币交易所</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { display: flex; justify-content: space-between; }
+        .box { border: 1px solid #ccc; padding: 20px; width: 45%; }
+        h2 { text-align: center; }
+        button { margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h1>加密货币交易所</h1>
+    <div class="container">
+        <div class="box">
+            <h2>交易</h2>
+            <div>
+                <label for="tradeType">交易类型：</label>
+                <select id="tradeType">
+                    <option value="buy">买入</option>
+                    <option value="sell">卖出</option>
+                </select>
+            </div>
+            <div>
+                <label for="amount">数量：</label>
+                <input type="number" id="amount">
+            </div>
+            <div>
+                <label for="price">价格：</label>
+                <input type="number" id="price">
+            </div>
+            <button onclick="makeTrade()">进行交易</button>
+        </div>
+        <div class="box">
+            <h2>管理面板</h2>
+            <div>
+                <label for="coinPrice">设置币价：</label>
+                <input type="number" id="coinPrice">
+            </div>
+            <button onclick="setPrice()">设置价格</button>
+            <div>
+                <h3>当前价格：<span id="currentPrice">0</span></h3>
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentPrice = 0;
+        function makeTrade() {
+            const tradeType = document.getElementById('tradeType').value;
+            const amount = document.getElementById('amount').value;
+            const price = document.getElementById('price').value;
+            alert(`交易类型：${tradeType} 数量：${amount} 价格：${price}`);
+        }
+        function setPrice() {
+            currentPrice = document.getElementById('coinPrice').value;
+            document.getElementById('currentPrice').innerText = currentPrice;
+            alert(`设置的新价格：${currentPrice}`);
+        }
+    </script>
+</body>
+</html>
